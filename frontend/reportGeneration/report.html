@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Report</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="heading-at-top">
+        <h2>Day to Day Expenses</h2>
+      </div>
+      <div class="monthly-report-wrapper">
+        <div class="month-name">
+          <div id="select-month-text">Select month</div>
+          <input type="month" id="month-input" />
+          <button onclick="displayMonthlyReport(1)">Get report</button>
+        </div>
+        <div class="monthly-report-table">
+          <div class="monthly-report-table-header">
+            <div class="monthly-report-table-cell">Date</div>
+            <div class="monthly-report-table-cell-description">Description</div>
+            <div class="monthly-report-table-cell">Catagory</div>
+            <div class="monthly-report-table-cell">Income</div>
+            <div class="monthly-report-table-cell">Expense</div>
+          </div>
+          <div
+            class="monthly-report-table-list"
+            id="monthly-report-table-list"
+          ></div>
+        </div>
+        <div class="pagination">
+          <div id="rows-per-page-div">
+            <label for="rows-per-page-dropdown">Rows per page:</label>
+            <select id="rows-per-page-dropdown">
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+            </select>
+          </div>
+          <div class="pagination-buttons">
+            <button id="prevPage" class="pagination-nav-button">Previous Page</button>
+            <div id="pageNumbers" class="page-numbers"></div>
+            <button id="nextPage" class="pagination-nav-button">Next Page</button>
+          </div>
+        </div>
+        <div>
+          <button id="download-btn" onclick="downloadReport()">Download report</button>
+        </div>
+        <div id="fileUrl-div">
+          
+        </div>
+      </div>
+      <div class="downloads-list-div">
+        <div class="heading"><h4>Older downloads</h4></div>
+        <div class="downloads-list-header">
+          <div class="downloads-list-cell width-50 heading">Time & date of download</div>
+          <div class="downloads-list-cell width-25 heading">Report of month</div>
+          <div class="downloads-list-cell width-25 heading">Download Link</div>
+        </div>
+        <div class="downloads-list-body" id="downloads-list-body">
+
+        </div>
+        <div class="pagination-buttons">
+          <button id="prevPage_downloads" class="pagination-nav-button">&larr;</button>
+          <button id="nextPage_downloads" class="pagination-nav-button">&rarr;</button>
+        </div>
+      </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="report.js"></script>
+  </body>
+</html>

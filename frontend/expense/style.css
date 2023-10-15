@@ -1,0 +1,247 @@
+*{
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+@media (max-width:991px){
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll; /* Allow the left-container to scroll */
+  }
+  
+  .left-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Add overflow-y: scroll; */
+    overflow-y: scroll;
+  }
+  
+  .right-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  
+
+}
+
+@media (min-width:992px){
+  .container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .left-container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+  }
+
+  .right-container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    overflow: auto;
+  }
+}
+
+.heading{
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+.add-expense-container{
+  width: auto;
+  height: auto;
+  border: 1px solid rgb(222, 220, 220);
+  padding: 2rem 4rem;
+  padding-bottom: 3.5rem;
+}
+#switch-to-income{
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+#switch-to-expense{
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.date-div{
+  display: flex;
+  flex-direction: row;
+}
+.date-div input{
+  border: 1px solid rgb(222, 220, 220);
+  width: 11rem;
+  height: 2.3rem;
+}
+.field{
+  padding: 0.18rem 0;
+}
+.field input{
+  border: 1px solid rgb(222, 220, 220);
+  width: 15rem;
+  height: 2.3rem;
+}
+.form-select{
+  border: 1px solid rgb(222, 220, 220);
+  width: 15rem;
+  height: 2.3rem;
+}
+.submit-btn-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+  padding-bottom: 0.8rem;
+}
+.submit-btn-div button{
+  width: 15rem;
+  height: 2rem;
+  background-color: rgb(88 149 114);
+  color: whitesmoke;
+  font-weight: 600;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 6px;
+}
+.text-above-premium{
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.premium-btn-div{
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 1.5rem 0; */
+}
+.premium-btn-div button{
+  width: 15rem;
+  height: 2rem;
+  background-color: rgb(220 189 10);
+  color: whitesmoke;
+  font-weight: 600;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 6px;
+}
+
+#you-are-premium{
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+#show-leaderboard-btn{
+  margin-top: 1.3rem;
+  width: 15rem;
+  height: 2rem;
+  background-color: rgb(220 189 10);
+  color: whitesmoke;
+  font-weight: 600;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 6px;
+}
+#show-report-btn{
+  margin-top: 0.8rem;
+  width: 15rem;
+  height: 2rem;
+  background-color: rgb(206 206 206 / 70%);
+  font-weight: 600;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 6px;
+}
+.display-expenses-container{
+  width: 95%;
+  height: auto;
+  margin-top: 2rem;
+}
+.total-expense-bar{
+  width: 100%;
+  height: 2rem;
+  background-color: rgb(220 220 220 / 39%);
+  /* color: whitesmoke; */
+  display: flex;
+  flex-direction: row;
+  font-size: 1.1rem;
+}
+.total-expense-text{
+  text-align: center;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding-left: 2rem; */
+}
+.total-expense-amount{
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30%;
+}
+.expenses-list{
+  width: 100%;
+  height: auto;
+}
+.list-element{
+  width: 100%;
+  padding: 0.5rem 0;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid rgb(222, 220, 220);
+}
+
+.list-element-sub-30{
+  width: 30%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list-element-sub-20{
+  width: 20%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delete-btn{
+  background-color: rgb(209, 26, 42);
+  color: whitesmoke;
+  width: 4rem;
+  height: 1.3rem;
+  /* font-weight: 600; */
+  /* font-size: 1.05rem; */
+  border: none;
+  border-radius: 6px;
+}
+

@@ -1,0 +1,153 @@
+*{
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.heading-at-top{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+.monthly-report-wrapper{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#select-month-text{
+    width: auto;
+    height: inherit;
+    display: flex;
+    align-items: center;
+}
+.month-name{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+.month-name input{
+  border: 1px solid rgb(222, 220, 220);
+  width: 14rem;
+  height: 2.3rem;
+  margin: 0 0.5rem;
+}
+.monthly-report-table{
+    width: 95%;
+    height: auto;
+}
+.monthly-report-table-header{
+    margin-top: 2rem;
+    width: 100%;
+    height: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(220 220 220 / 39%);
+}
+.monthly-report-table-cell{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 17%;
+    height: inherit;
+    text-align: center;
+    border: 1px solid black;
+}
+.monthly-report-table-cell-description{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32%;
+    height: inherit;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.monthly-report-table-list{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.monthly-report-table-list-row{
+    width: 100%;
+    min-height: 1.5rem;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+.pagination{
+    margin-top: 1rem;
+    display: flex;
+}
+.pagination-buttons{
+    margin-left: 1rem;
+    display: flex;
+}
+.pagination-nav-button{
+    margin: 0 0.25rem;
+}
+.page-number-button{
+    margin: 0 0.25rem;
+}
+#download-btn{
+    margin-top: 2rem;
+}
+.active{
+    background-color: #434343;
+    color: whitesmoke;
+}
+#fileUrl-div{
+    margin-top: 1rem;
+}
+
+.downloads-list-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: auto;
+}
+.heading{
+    justify-content: center;
+}
+.downloads-list-header{
+    background-color: rgb(220 220 220 / 39%);
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+.width-25{
+    width: 25%;
+}
+.width-50{
+    width: 50%;
+}
+.downloads-list-cell{
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    height: 1.5rem;
+}
+.downloads-list-body{
+    width: 100%;
+    height: auto;
+}
+.downloads-list-body-row{
+    width: 100%;
+    height: auto;
+    display: flex;
+}

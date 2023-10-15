@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!--left half-->
+      <div class="left-container">
+        <div class="add-expense-container" id="add-expense-container">
+          <div id="switch-to-income" style="display: flex;">
+            <button onclick="switchToIncome()">Go to add income &rarr;</button>
+          </div>
+          <div id="switch-to-expense" style="display: none;">
+            <button onclick="switchToExpense()">Go to add expense &rarr;</button>
+          </div>
+          <div class="date-div">
+            <input type="date" id="date-pick" />
+            <button onclick="onSetDate()">Set date</button>
+          </div>
+          <!-- expense  -->
+          <div id="expense-exclusive" style="display: block;">
+            <div class="heading">Add expense</div>
+            <div class="field">
+              <input
+                type="text"
+                id="amount"
+                placeholder="Expense amount"
+                pattern="[0-9]+"
+                required
+              />
+            </div>
+            <div class="field">
+              <input type="text" id="description" placeholder="Description" />
+            </div>
+            <div class="field">
+              <label for="dropdown">Category:</label><br />
+            </div>
+            <div class="field">
+              <select id="dropdown" class="form-select">
+                <option value="General">General</option>
+                <option value="Food">Food</option>
+                <option value="Fuel">Fuel</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Educational">Educational</option>
+              </select>
+            </div>
+            <div class="submit-btn-div">
+              <button onclick="postNewExpense()">Add expense</button>
+            </div>
+          </div>
+          <!-- income  -->
+          <div id="income-exclusive" style="display: none;">
+            <div class="heading">Add income</div>
+            <div class="field">
+              <input
+                type="text"
+                id="income-amount"
+                placeholder="Income amount"
+                pattern="[0-9]+"
+                required
+              />
+            </div>
+            <div class="field">
+              <input type="text" id="income-description" placeholder="Description" />
+            </div>
+            <div class="field">
+              <label for="dropdown">Category:</label><br />
+            </div>
+            <div class="field">
+              <select id="income-dropdown" class="form-select">
+                <option value="Salary">Salary</option>
+                <option value="Business">Business</option>
+                <option value="Agricultural">Agricultural</option>
+                <option value="Investments">Investments</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="submit-btn-div">
+              <button onclick="postNewIncome()">Add Income</button>
+            </div>
+          </div>
+          <div id="premium-div">
+            <div class="text-above-premium">For more features</div>
+            <div class="premium-btn-div">
+              <button id="rzp-button1">Buy premium membership</button>
+            </div>
+          </div>
+          <div id="you-are-premium">
+            You are a premium user !!
+            <button id="show-report-btn">Show expense report</button>
+            <button id="show-leaderboard-btn">Show leaderboard</button>
+          </div>
+        </div>
+      </div>
+      <!--right half-->
+      <div class="right-container">
+        <!-- display income list  -->
+        <div class="display-expenses-container">
+          <div class="total-expense-bar">
+            <div class="total-expense-text">Total Income</div>
+            <div class="total-expense-amount" id="total-income-node">&#8377;</div>
+          </div>
+          <div class="expenses-list" id="incomes-list"></div>
+        </div>
+        <!-- display expense list  -->
+        <div class="display-expenses-container">
+          <div class="total-expense-bar">
+            <div class="total-expense-text">Total Expense</div>
+            <div class="total-expense-amount" id="total-expense-node">&#8377;</div>
+          </div>
+          <div class="expenses-list" id="expenses-list"></div>
+        </div>
+      </div>
+    </div>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="expense.js"></script>
+  </body>
+</html>
