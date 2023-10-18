@@ -68,6 +68,7 @@ async function downloadReport() {
       }
     }
   );
+  
   document.getElementById(
     'fileUrl-div'
   ).innerHTML = `<h4 style="display: inline;">Download link</h4> : <a href="${fileUrl}">Click here</a>`;
