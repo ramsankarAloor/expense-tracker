@@ -1,7 +1,11 @@
 const fs = require("fs");
 const path = require("path");
+require('dotenv').config();
 
 const express = require("express");
+
+const app = express();
+
 const sequelize = require("./util/database");
 const cors = require("cors");
 const Users = require("./models/users");
@@ -13,7 +17,6 @@ const helmet = require("helmet");
 const compression = require("compression");
 const morgan = require("morgan");
 
-const app = express();
 
 const userRoutes = require("./routes/user.js");
 const loginSignupRoutes = require("./routes/loginSignup");
