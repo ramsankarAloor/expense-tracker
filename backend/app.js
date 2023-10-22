@@ -38,6 +38,7 @@ app.use(express.json());
 
 app.use('/check', (req, res)=>{
   console.log("hello");
+  res.json({msg:'hello guys..!'});
 })
 
 app.use(userRoutes);
