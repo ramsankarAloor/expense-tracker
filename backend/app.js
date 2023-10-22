@@ -36,6 +36,10 @@ app.use(morgan("combined", { stream: accessLogStream }));
 app.use(cors());
 app.use(express.json());
 
+app.use('/check', (req, res)=>{
+  console.log("hello");
+})
+
 app.use(userRoutes);
 app.use(loginSignupRoutes);
 app.use("/purchase", purchaseRoutes);
