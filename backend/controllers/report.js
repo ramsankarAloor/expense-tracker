@@ -14,6 +14,7 @@ exports.monthlyList = async (req, res) => {
 
     const totalRecords = await Expenses.count({
       where: {
+        userId: req.user.id ,
         date: {
           [Op.between]: [startDate, endDate] // Filter by date range
         }
@@ -26,6 +27,7 @@ exports.monthlyList = async (req, res) => {
 
     const expensesForSelectedMonth = await Expenses.findAll({
       where: {
+        userId: req.user.id ,
         date: {
           [Op.between]: [startDate, endDate] // Filter by date range
         }
@@ -87,9 +89,10 @@ exports.downloadMonthlyList = async (req, res) => {
 
     const expensesForSelectedMonth = await Expenses.findAll({
       where: {
+        userId: req.user.id ,
         date: {
           [Op.between]: [startDate, endDate] // Filter by date range
-        }
+        },
       },
       order: [['date', 'ASC']]
     });
@@ -134,6 +137,7 @@ exports.listDownloads = async (req, res) => {
 
     const downloadsList = await Downloads.findAll({
       attributes : ['reportOfMonth', 'link', 'dateTime'],
+      where: { userId: req.user.id }, 
       order : [['dateTime', 'DESC']],
       limit : Number(perPage),
       offset : (page-1)*perPage
