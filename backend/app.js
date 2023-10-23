@@ -30,8 +30,8 @@ const accessLogStream = fs.createWriteStream(
 );
 
 // app.use(helmet()); // for safety headers
+// app.use(morgan("combined", { stream: accessLogStream }));
 app.use(compression()); // for compressing css and js files mainly, image files are not compressed.
-app.use(morgan("combined", { stream: accessLogStream }));
 app.use(cors());
 app.use(express.json());
 
