@@ -1,4 +1,4 @@
-const apiBaseUrl = `http://localhost`;
+const apiBaseUrl = `http://13.48.1.93`;
 
 const form = document.getElementById('forgot-password-form');
 form.addEventListener("submit", sendEmail);
