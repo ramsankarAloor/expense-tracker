@@ -1,7 +1,7 @@
 const Users = require("../models/users");
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-require('dotenv').config();
+require("dotenv").config();
 
 exports.postSignUp = async (req, res) => {
   try {
@@ -28,7 +28,7 @@ exports.postSignUp = async (req, res) => {
   }
 };
 
-exports.postLogIn = async (req, res)=> {
+exports.postLogIn = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
     return res
@@ -37,22 +37,24 @@ exports.postLogIn = async (req, res)=> {
   }
 
   const existing = await Users.findOne({
-    where : { email : email}
-  })
-  if(!existing){
+    where: { email: email },
+  });
+  if (!existing) {
     return res.status(404).json({ err: "User not found" });
-  }else{
+  } else {
     const savedPassword = existing.dataValues.password;
     //savedPassword is the hash
     const isMatch = await bcrypt.compare(password, savedPassword);
-    if(!isMatch){
+    if (!isMatch) {
       return res.status(401).json({ err: "User not authorized" });
     }
   }
-
-  res.json({ accessToken : generateAccessToken(existing.dataValues.id), message: "User logged successfully"});
+  res.json({
+    accessToken: generateAccessToken(existing.dataValues.id),
+    message: "User logged successfully",
+  });
 };
 
-function generateAccessToken(id_given){
-  return jwt.sign({ userId : id_given}, process.env.ACCESS_TOKEN_SECRET)
+function generateAccessToken(id_given) {
+  return jwt.sign({ userId: id_given }, process.env.ACCESS_TOKEN_SECRET);
 }

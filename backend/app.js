@@ -13,9 +13,9 @@ const Expenses = require("./models/expenses");
 const Orders = require("./models/orders");
 const Forgotpassword = require("./models/forgotpassword");
 const Downloads = require("./models/downloads");
-const helmet = require("helmet");
+// const helmet = require("helmet");
 const compression = require("compression");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 
 const userRoutes = require("./routes/user.js");
 const loginSignupRoutes = require("./routes/loginSignup");
@@ -24,10 +24,10 @@ const premiumRoutes = require("./routes/premium");
 const resetPasswordRoutes = require("./routes/resetpassword");
 const reportRoutes = require("./routes/report");
 
-const accessLogStream = fs.createWriteStream(
-  path.join(__dirname, "access.log"),
-  { flags: "a" }
-);
+// const accessLogStream = fs.createWriteStream(
+//   path.join(__dirname, "access.log"),
+//   { flags: "a" }
+// );
 
 // app.use(helmet()); // for safety headers
 // app.use(morgan("combined", { stream: accessLogStream }));

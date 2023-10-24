@@ -1,3 +1,4 @@
+const apiBaseUrl = `http://localhost`;
 
 document.addEventListener('DOMContentLoaded', function() {
   if(!localStorage.getItem('lastEnteredDate')){
@@ -24,7 +25,7 @@ function onSetDate(){
 
 async function getIncomesPerDate(date){
   const token = localStorage.getItem('token');
-  const {data:incomes} = await axios.post("http://localhost:3000/expenses",{date:date, isIncome : true}, {
+  const {data:incomes} = await axios.post(`${apiBaseUrl}:3000/expenses`,{date:date, isIncome : true}, {
     headers : {
       'Authorization' : `Bearer ${token}`
     }
@@ -44,7 +45,7 @@ async function getIncomesPerDate(date){
 
 async function getExpensesPerDate(date){
   const token = localStorage.getItem('token');
-  const {data:expenses} = await axios.post("http://localhost:3000/expenses",{date:date, isIncome:false}, {
+  const {data:expenses} = await axios.post(`${apiBaseUrl}:3000/expenses`,{date:date, isIncome:false}, {
     headers : {
       'Authorization' : `Bearer ${token}`
     }
@@ -64,7 +65,7 @@ async function getExpensesPerDate(date){
 
 async function setupForPremium(){
   const token = localStorage.getItem('token');
-  const {data:isUserPremium} = await axios.get('http://localhost:3000/isPremium', {
+  const {data:isUserPremium} = await axios.get(`${apiBaseUrl}:3000/isPremium`, {
     headers : {
       'Authorization' : `Bearer ${token}`
     }
@@ -106,7 +107,7 @@ function displayIncomeRecord(object){
 
   async function deleteIncome() {
     const token = localStorage.getItem('token');
-    await axios.delete(`http://localhost:3000/incomes/${object.id}`, {
+    await axios.delete(`${apiBaseUrl}:3000/incomes/${object.id}`, {
       headers : {
         'Authorization' : `Bearer ${token}`
       }
@@ -144,7 +145,7 @@ function displayExpenseRecord(object) {
 
   async function deleteExpense() {
     const token = localStorage.getItem('token');
-    await axios.delete(`http://localhost:3000/expenses/${object.id}`, {
+    await axios.delete(`${apiBaseUrl}:3000/expenses/${object.id}`, {
       headers : {
         'Authorization' : `Bearer ${token}`
       }
@@ -163,7 +164,7 @@ async function postNewExpense() {
   const obj = { amount, description, category, date, isIncome : false};
 
   await axios.post(
-    "http://localhost:3000/new-expense", obj, {
+    `${apiBaseUrl}:3000/new-expense`, obj, {
       headers : {
         'Authorization' : `Bearer ${token}`
       }
@@ -183,7 +184,7 @@ async function postNewIncome(){
   const obj = { amount, description, category, date, isIncome: true};
 
   await axios.post(
-    "http://localhost:3000/new-expense", obj, {
+    `${apiBaseUrl}:3000/new-expense`, obj, {
       headers : {
         'Authorization' : `Bearer ${token}`
       }
@@ -194,7 +195,7 @@ async function postNewIncome(){
 
 document.getElementById("rzp-button1").onclick = async function (event) {
    const token = localStorage.getItem('token');
-   const response = await axios.get("http://localhost:3000/purchase/premium-membership", {
+   const response = await axios.get(`${apiBaseUrl}:3000/purchase/premium-membership`, {
     headers : {
       "Authorization" : `Bearer ${token}`
     }
@@ -204,7 +205,7 @@ document.getElementById("rzp-button1").onclick = async function (event) {
     "order_id" : response.data.order.id,
     //handler function is called when payment is successful
     "handler" : async function (response) {
-      await axios.post('http://localhost:3000/purchase/update-transaction-status', {
+      await axios.post(`${apiBaseUrl}:3000/purchase/update-transaction-status`, {
         order_id : options.order_id,
         payment_id : response.razorpay_payment_id
       }, {

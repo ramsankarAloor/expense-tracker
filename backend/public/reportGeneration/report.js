@@ -1,3 +1,5 @@
+const apiBaseUrl = `http://localhost`;
+
 document.addEventListener('DOMContentLoaded', function () {
   getDefaultMonth();
   getDownloadsList();
@@ -60,7 +62,7 @@ async function downloadReport() {
   const {
     data: { fileUrl }
   } = await axios.post(
-    `http://localhost:3000/report/download-monthly-list`,
+    `${apiBaseUrl}:3000/report/download-monthly-list`,
     { selectedMonth },
     {
       headers: {
@@ -79,7 +81,7 @@ async function addToDownloads(fileUrl, selectedMonth) {
   const token = localStorage.getItem('token');
   const dateTime = new Date();
   const { data: newDownload } = await axios.post(
-    `http://localhost:3000/report/add-to-downloads`,
+    `${apiBaseUrl}:3000/report/add-to-downloads`,
     { fileUrl, selectedMonth, dateTime },
     {
       headers: {
@@ -95,7 +97,7 @@ const perPage_download = 10
 async function getDownloadsList() {
   const token = localStorage.getItem('token');
   const { data: downloadsList } = await axios.get(
-    `http://localhost:3000/report/list-downloads?page=${page_download}&perPage=${perPage_download}`,
+    `${apiBaseUrl}:3000/report/list-downloads?page=${page_download}&perPage=${perPage_download}`,
     {
       headers: {
         Authorization: `Bearer ${token}`
@@ -163,7 +165,7 @@ async function displayMonthlyReport(page) {
   const {
     data: { expensesForSelectedMonth, totalRecords }
   } = await axios.post(
-    `http://localhost:3000/report/monthlyList?page=${page}&perPage=${perPage}`,
+    `${apiBaseUrl}:3000/report/monthlyList?page=${page}&perPage=${perPage}`,
     { selectedMonth },
     {
       headers: {
