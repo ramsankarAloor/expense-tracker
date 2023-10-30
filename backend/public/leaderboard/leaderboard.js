@@ -1,4 +1,4 @@
-const apiBaseUrl = `http://13.48.70.60`;
+const apiBaseUrl = `http://13.48.1.93`;
 
 document.addEventListener("DOMContentLoaded", async function () {
   const token = localStorage.getItem("token");
