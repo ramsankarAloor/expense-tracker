@@ -1,4 +1,4 @@
-const apiBaseUrl = `http://13.48.1.93`;
+const apiBaseUrl = `http://13.48.70.60`;
 
 document.addEventListener('DOMContentLoaded', function () {
   getDefaultMonth();

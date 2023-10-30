@@ -1,4 +1,4 @@
-const apiBaseUrl = `http://13.48.1.93`;
+const apiBaseUrl = `http://13.48.70.60`;
 
 let form = document.getElementById("login-form");
 form.addEventListener("submit", postLogin);
