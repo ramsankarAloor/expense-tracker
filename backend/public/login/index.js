@@ -1,14 +1,7 @@
-const apiBaseUrl = `http://13.48.1.93`;
+const apiBaseUrl = `http://localhost`;
 
 let form = document.getElementById("login-form");
 form.addEventListener("submit", postLogin);
-
-// let signInLink = document.getElementById("sign-in-link");
-// signInLink.addEventListener("click", redirection);
-
-// function redirection(event){
-
-// }
 
 async function postLogin(event) {
   event.preventDefault();
@@ -33,7 +26,7 @@ async function postLogin(event) {
     localStorage.setItem("lastEnteredDate", formattedDate);
 
     localStorage.setItem("token", data.accessToken);
-    window.location.href = "../expense/expense.html";
+    window.location.href = "../expense/index.html";
   } catch (error) {
     if (error.response.status === 404) {
       loginError.textContent = "Error ! User not found..";

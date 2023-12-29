@@ -1,4 +1,4 @@
-const apiBaseUrl = `http://13.48.1.93`;
+const apiBaseUrl = `http://localhost`;
 
 document.addEventListener('DOMContentLoaded', function() {
   if(!localStorage.getItem('lastEnteredDate')){
@@ -232,10 +232,10 @@ const showReportButton = document.getElementById('show-report-btn');
 showReportButton.addEventListener('click', goToReport);
 
 function goToLeaderBoard(){
-  window.location.href = "../leaderboard/leaderboard.html"
+  window.location.href = "../leaderboard/index.html"
 }
 function goToReport(){
-  window.location.href = "../reportGeneration/report.html"
+  window.location.href = "../reportGeneration/index.html"
 }
 
 function switchToIncome(){

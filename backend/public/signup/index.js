@@ -1,4 +1,4 @@
-const apiBaseUrl = `http://13.48.1.93`;
+const apiBaseUrl = `http://localhost`;
 
 let form = document.getElementById("signup-form");
 
@@ -32,7 +32,7 @@ async function postSignup(event) {
     localStorage.setItem("lastEnteredDate", formattedDate);
 
     localStorage.setItem("token", loginUser.accessToken);
-    window.location.href = "../expense/expense.html";
+    window.location.href = "../expense/index.html";
   } catch (error) {
     if (error.response.status === 403) {
       emailError.textContent = "*This email is already registered";

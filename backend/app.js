@@ -18,7 +18,7 @@ const compression = require("compression");
 // const morgan = require("morgan");
 
 const userRoutes = require("./routes/user.js");
-const loginSignupRoutes = require("./routes/loginSignup");
+const loginSignupRoutes = require("./routes/login-signup.js");
 const purchaseRoutes = require("./routes/purchase");
 const premiumRoutes = require("./routes/premium");
 const resetPasswordRoutes = require("./routes/resetpassword");
