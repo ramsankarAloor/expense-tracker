@@ -13,9 +13,7 @@ const Expenses = require("./models/expenses");
 const Orders = require("./models/orders");
 const Forgotpassword = require("./models/forgotpassword");
 const Downloads = require("./models/downloads");
-// const helmet = require("helmet");
 const compression = require("compression");
-// const morgan = require("morgan");
 
 const userRoutes = require("./routes/user.js");
 const loginSignupRoutes = require("./routes/login-signup.js");
@@ -24,24 +22,12 @@ const premiumRoutes = require("./routes/premium");
 const resetPasswordRoutes = require("./routes/resetpassword");
 const reportRoutes = require("./routes/report");
 
-// const accessLogStream = fs.createWriteStream(
-//   path.join(__dirname, "access.log"),
-//   { flags: "a" }
-// );
-
-// app.use(helmet()); // for safety headers
-// app.use(morgan("combined", { stream: accessLogStream }));
 app.use(compression()); // for compressing css and js files mainly, image files are not compressed.
 app.use(cors());
 app.use(express.json());
 
-app.use("/check", (req, res) => {
-  console.log("hello");
-  res.json({ msg: "hello guys..!" });
-});
-
-app.use(userRoutes);
 app.use(loginSignupRoutes);
+app.use(userRoutes);
 app.use("/purchase", purchaseRoutes);
 app.use("/premium", premiumRoutes);
 app.use("/password", resetPasswordRoutes);
