@@ -26,8 +26,8 @@ app.use(compression()); // for compressing css and js files mainly, image files 
 app.use(cors());
 app.use(express.json());
 
-app.use(loginSignupRoutes);
-app.use(userRoutes);
+app.use("/auth", loginSignupRoutes);
+app.use("/user", userRoutes);
 app.use("/purchase", purchaseRoutes);
 app.use("/premium", premiumRoutes);
 app.use("/password", resetPasswordRoutes);
@@ -44,5 +44,5 @@ Users.hasMany(Downloads);
 
 sequelize
   .sync()
-  .then((result) => app.listen(3000))
+  .then(() => app.listen(3000))
   .catch((err) => console.log(err));

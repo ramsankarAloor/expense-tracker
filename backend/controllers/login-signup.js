@@ -48,7 +48,7 @@ exports.postLogIn = async (req, res) => {
       return res.status(401).json({ err: "User not authorized" });
     }
   }
-  res.json({
+  res.status(200).json({
     accessToken: generateAccessToken(existing.dataValues.id),
     message: "User logged successfully",
   });

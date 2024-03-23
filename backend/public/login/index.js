@@ -16,7 +16,7 @@ async function postLogin(event) {
   };
 
   try {
-    const { data } = await axios.post(`${apiBaseUrl}:3000/login`, obj);
+    const { data } = await axios.post(`${apiBaseUrl}:3000/auth/login`, obj);
     //setting date at login
     const today = new Date();
     const year = today.getFullYear();
