@@ -33,6 +33,7 @@ exports.monthlyList = async (req, res) => {
         }
       },
       order: [['date', 'ASC']],
+      attributes: ['amount', 'description', 'date', 'category', 'isIncome'],
       limit: Number(perPage),
       offset: (page - 1) * perPage
     });
@@ -81,33 +82,33 @@ async function uploadToS3(data, filename) {
 
 exports.downloadMonthlyList = async (req, res) => {
   try {
-    const selectedMonth = req.body.selectedMonth;
+    const {selectedMonth, csvString} = req.body;
     const [year, month] = selectedMonth.split('-');
 
     const startDate = new Date(`${year}-${month}-01`);
     const endDate = new Date(year, month, 0);
 
-    const expensesForSelectedMonth = await Expenses.findAll({
-      where: {
-        userId: req.user.id ,
-        date: {
-          [Op.between]: [startDate, endDate] // Filter by date range
-        },
-      },
-      order: [['date', 'ASC']]
-    });
+    // const expensesForSelectedMonth = await Expenses.findAll({
+    //   where: {
+    //     userId: req.user.id ,
+    //     date: {
+    //       [Op.between]: [startDate, endDate] // Filter by date range
+    //     },
+    //   },
+    //   order: [['date', 'ASC']]
+    // });
 
-    const stringifiedExpensesForSelectedMonth = JSON.stringify(
-      expensesForSelectedMonth
-    );
+    // const stringifiedExpensesForSelectedMonth = JSON.stringify(
+    //   expensesForSelectedMonth
+    // );
     //each download button click need to produce a new file name. otherwise same file will get overwritten, for different users also
-    const filename = `Expenses/${selectedMonth}/${req.user.id}/${new Date()}.txt`;
+    const filename = `Expenses/${selectedMonth}/${req.user.id}/${new Date()}.csv`;
 
     const fileUrl = await uploadToS3(
-      stringifiedExpensesForSelectedMonth,
+      csvString,
       filename
     );
-    res.status(200).json({ fileUrl, success: true });
+    res.status(200).json({ fileUrl, success: true, string: csvString });
   } catch (error) {
     console.error(error);
     res.json({ fileUrl: '', success: false, error: error });
