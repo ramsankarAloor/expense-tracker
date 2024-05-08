@@ -1,6 +1,4 @@
 const Users = require("../models/users");
-const Expenses = require("../models/expenses");
-const sequelize = require('../util/database');
 
 exports.goToLeaderboard = async (req, res) => {
     try {
