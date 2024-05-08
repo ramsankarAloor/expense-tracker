@@ -1,9 +1,9 @@
-const apiBaseUrl = `http://localhost`;
+const apiBaseUrl = BASE_URL;
 
 document.addEventListener("DOMContentLoaded", async function () {
   const token = localStorage.getItem("token");
   const { data: leaderboardArray } = await axios.get(
-    `${apiBaseUrl}:3000/premium/go-to-leaderboard`,
+    `${apiBaseUrl}/premium/go-to-leaderboard`,
     {
       headers: {
         Authorization: `Bearer ${token}`,

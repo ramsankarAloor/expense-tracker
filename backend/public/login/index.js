@@ -1,4 +1,4 @@
-const apiBaseUrl = `http://localhost`;
+const apiBaseUrl = BASE_URL;
 
 let form = document.getElementById("login-form");
 form.addEventListener("submit", postLogin);
@@ -16,7 +16,7 @@ async function postLogin(event) {
   };
 
   try {
-    const { data } = await axios.post(`${apiBaseUrl}:3000/auth/login`, obj);
+    const { data } = await axios.post(`${apiBaseUrl}/auth/login`, obj);
     //setting date at login
     const today = new Date();
     const year = today.getFullYear();

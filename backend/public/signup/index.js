@@ -1,4 +1,4 @@
-const apiBaseUrl = `http://localhost`;
+const apiBaseUrl = BASE_URL;
 
 let form = document.getElementById("signup-form");
 
@@ -18,8 +18,8 @@ async function postSignup(event) {
     password: password,
   };
   try {
-    await axios.post(`${apiBaseUrl}:3000/auth/signup`, obj);
-    const { data: loginUser } = await axios.post(`${apiBaseUrl}:3000/auth/login`, {
+    await axios.post(`${apiBaseUrl}/auth/signup`, obj);
+    const { data: loginUser } = await axios.post(`${apiBaseUrl}/auth/login`, {
       email: email,
       password: password,
     });

@@ -66,11 +66,3 @@ button{
 .error-message{
     color: red;
 }
-.forgot-password-div{
-    text-align: center;
-}
-.forgot-password-div a{
-    text-decoration: none;
-    color: black;
-    font-size: 0.9rem;
-}

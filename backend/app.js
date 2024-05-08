@@ -11,7 +11,6 @@ const cors = require("cors");
 const Users = require("./models/users");
 const Expenses = require("./models/expenses");
 const Orders = require("./models/orders");
-const Forgotpassword = require("./models/forgotpassword");
 const Downloads = require("./models/downloads");
 const compression = require("compression");
 
@@ -19,7 +18,6 @@ const userRoutes = require("./routes/user.js");
 const loginSignupRoutes = require("./routes/login-signup.js");
 const purchaseRoutes = require("./routes/purchase");
 const premiumRoutes = require("./routes/premium");
-const resetPasswordRoutes = require("./routes/resetpassword");
 const reportRoutes = require("./routes/report");
 
 app.use(compression()); // for compressing css and js files mainly, image files are not compressed.
@@ -30,7 +28,6 @@ app.use("/auth", loginSignupRoutes);
 app.use("/user", userRoutes);
 app.use("/purchase", purchaseRoutes);
 app.use("/premium", premiumRoutes);
-app.use("/password", resetPasswordRoutes);
 app.use("/report", reportRoutes);
 
 app.use((req, res) => {
@@ -39,7 +36,6 @@ app.use((req, res) => {
 
 Users.hasMany(Expenses);
 Users.hasMany(Orders);
-Users.hasMany(Forgotpassword);
 Users.hasMany(Downloads);
 
 sequelize
